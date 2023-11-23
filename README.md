@@ -1,8 +1,8 @@
-# PDF Merger and Converter App
+# PDF Fusion Pro
 
 ## Overview
 
-This is a PDF merger and converter app designed to simplify the process of merging and converting PDF files. The application allows users to combine multiple PDF files into a single document and convert PDFs to different formats.
+PDF Fusion Pro is a PDF merger and converter app designed to simplify the process of merging and converting PDF files. The application allows users to combine multiple PDF files into a single document and convert PDFs to different formats.
 
 ## Features
 
