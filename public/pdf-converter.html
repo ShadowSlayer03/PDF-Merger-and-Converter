@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Converter | PDF Fusion Pro</title>
+    <link rel="shortcut icon" href="/images/icons8-pdf-60.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+</head>
+<body>
+    <div class="bg-white">
+        <header class="absolute inset-x-0 top-0 z-50">
+          <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+            <div class="flex lg:flex-1">
+                <a href="#" class="flex items-center">
+                  <a href="/index.html"><img src="/images/pdf_fusion_pro.png" class="h-8 mr-3" alt="PDF Fusion Pro Logo"></a>
+                    <a href="/index.html"><span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">PDF Fusion Pro</span></a>
+                </a>
+            </div>
+          </nav>
+          <!-- Mobile menu, show/hide based on menu open state. -->
+          <div class="lg:hidden" role="dialog" aria-modal="true">
+            <!-- Background backdrop, show/hide based on slide-over state. -->
+            <div class="fixed inset-0 z-50"></div>
+          </div>
+        </header>
+        <div class="relative isolate px-6 pt-10 lg:px-8">
+          <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+            <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+          </div>
+
+          <div class="mx-auto max-w-2xl py-20 sm:py-48 lg:py-56">
+            <div class="text-center">
+              <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">PDF Converter</h1>
+              <p class="mt-6 text-lg leading-8 text-gray-600">Choose file to start converting to PDF: </p>
+            <form method="post" action="/convert-to-pdf" enctype="multipart/form-data" id="myForm">
+              <div class="mt-5 flex items-start justify-center gap-x-6">
+                <div id="align-properly" class="flex-col" style="z-index: 20;">
+                <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="mt-0 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 shadow-lg shadow-indigo-500/50" type="button">Select the type of file to convert 
+                    <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                    </svg>
+                </button>
+                
+                <!-- Dropdown menu -->
+                <div id="dropdownHover" class="hidden divide-y divide-gray-100 rounded-lg shadow w-auto dark:bg-gray-700" data-popper-placement="bottom" style="z-index: 200;">
+                    <ul class="bg-white py-2 text-sm text-gray-900 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                      <li>
+                        <p class="dropdown-para block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" style="cursor:pointer;">Excel (.xls)</p>
+                      </li>
+                      <li>
+                        <p class="dropdown-para block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" style="cursor: pointer;">PowerPoint (.pptx)</p>
+                      </li>
+                      <li>
+                        <p class="dropdown-para block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" style="cursor: pointer;">Word (.docx)</p>
+                      </li>
+                    </ul>
+                </div>
+                </div>
+
+                <button id="file-button" type="button" class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Choose File</button>
+                <input id="file-input" name="office-file" type="file" style="display: none;" multiple>
+              </div>
+            </form>
+            <button type="submit" id="convert-btn" class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mt-6 a">Convert</button>
+            </div>
+          </div>
+          <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+            <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="alert-mesg" class="hidden flex justify-center items-center fixed bottom-4 right-4 p-4 mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800" role="alert">
+        <svg class="mr-3" color: blue" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M12 6C12.5523 6 13 6.44772 13 7V13C13 13.5523 12.5523 14 12 14C11.4477 14 11 13.5523 11 13V7C11 6.44772 11.4477 6 12 6Z" fill="blue"></path> <path d="M12 16C11.4477 16 11 16.4477 11 17C11 17.5523 11.4477 18 12 18C12.5523 18 13 17.5523 13 17C13 16.4477 12.5523 16 12 16Z" fill="blue"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12Z" fill="blue"></path> 
+        </svg>
+        <span class="sr-only">Info</span>
+        <div>
+            <span class="font-medium">Alert!</span> File does not contain the selected extension!
+        </div>
+    </div>
+
+      <script>
+        const fileButton = document.getElementById('file-button');
+        const fileInput = document.getElementById('file-input');
+        const dropdownHoverButton = document.getElementById("dropdownHoverButton");
+        const dropdownHover = document.getElementById("dropdownHover");
+        const dropdownPara = document.getElementsByClassName("dropdown-para");
+        const convertButton = document.getElementById("convert-btn");
+        const myForm = document.getElementById('myForm');
+        const alertMesg = document.querySelector("#alert-mesg");
+        let selectedFiles = [];
+
+        fileButton.addEventListener('click', () => {
+          fileInput.click(); 
+        });
+
+        for(let i=0;i<3;i++)
+        {
+          dropdownPara[i].addEventListener('click',()=>{
+            const regex = /\((.*?)\)/;
+            const match = dropdownPara[i].textContent.match(regex);
+            valueInsideParentheses = match[1];
+            dropdownHoverButton.textContent = valueInsideParentheses;
+          })
+        }
+      
+        fileInput.addEventListener('change', () => {
+          selectedFiles = fileInput.files;
+          fileButton.textContent = selectedFiles[0].name;
+        });
+
+        convertButton.addEventListener('click',()=>{
+          console.log(selectedFiles[0]);
+          let lastindexOfPeriod = selectedFiles[0].name.lastIndexOf(".");
+          if (lastindexOfPeriod !== -1) {
+          const valueFromPeriod = selectedFiles[0].name.substring(lastindexOfPeriod).trim();
+          console.log("value from file",valueFromPeriod);
+          console.log("Button content",dropdownHoverButton.textContent);
+          if(valueFromPeriod == dropdownHoverButton.textContent){
+            myForm.submit();
+          }
+          else{
+            alertMesg.classList.toggle("hidden");
+          }
+          } 
+          else {
+          console.error("No extension found for the file.");
+          }
+        })
+      </script>
+</body>
+</html>
